@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 
 public class Customer {
-    private Long customer_id;
+    private Long id_customer;
     private String customer_firstname;
     private String customer_lastname;
     private String customer_address;
