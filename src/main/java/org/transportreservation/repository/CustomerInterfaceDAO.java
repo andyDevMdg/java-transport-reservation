@@ -5,12 +5,13 @@ import org.transportreservation.model.Customer;
 import java.util.List;
 
 public interface CustomerInterfaceDAO {
-    void addCustomer(Customer c);
+    void addEntity(Customer customer);
 
-    List<Customer> getAllCustomer();
-    List<Customer> getCustomerbyId(int id);
+    List<Customer> getAll();
 
-    void updateCustomerById(int id);
+    Customer getById(Long id);
 
-    void deleteCustomerById(int id);
+    void updateById(Long id);
+
+    void deleteById(Long id);
 }
