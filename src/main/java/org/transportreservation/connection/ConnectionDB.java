@@ -22,6 +22,7 @@ public class ConnectionDB {
         }
     }
 
+
     public static Connection getConnection(){
         if (connection == null){
             new ConnectionDB();
