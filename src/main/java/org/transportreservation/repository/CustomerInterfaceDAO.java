@@ -5,7 +5,7 @@ import org.transportreservation.model.Customer;
 import java.util.List;
 
 public interface CustomerInterfaceDAO {
-    void addEntity(Customer customer);
+    void insert(Customer customer);
 
     List<Customer> getAll();
 
