@@ -13,7 +13,7 @@ public interface CustomerInterfaceDAO {
 
     Customer getById(Long id);
 
-    void updateById(Long id);
+    Customer updateUsernameById(int id, String username);
 
     void deleteById(Long id);
 }
