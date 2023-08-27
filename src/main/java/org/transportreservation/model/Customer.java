@@ -2,17 +2,20 @@ package org.transportreservation.model;
 
 import lombok.*;
 
+
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class Customer {
-    private Long id_customer;
+    private int id_customer;
     private String customer_firstname;
     private String customer_lastname;
     private String customer_username;
@@ -20,5 +23,5 @@ public class Customer {
     private String customer_address;
     private double customer_national_id;
     private String customer_mobile_number;
-    private Timestamp customer_registration_date;
+    private LocalDateTime customer_registration_date;
 }
