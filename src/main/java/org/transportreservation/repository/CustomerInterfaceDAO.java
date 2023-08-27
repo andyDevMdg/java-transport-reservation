@@ -9,6 +9,8 @@ public interface CustomerInterfaceDAO {
 
     List<Customer> getAll();
 
+    List<Customer> getByName(String name);
+
     Customer getById(Long id);
 
     void updateById(Long id);
