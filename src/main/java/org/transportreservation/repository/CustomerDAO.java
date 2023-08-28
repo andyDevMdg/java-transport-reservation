@@ -19,7 +19,22 @@ public class CustomerDAO implements CustomerInterfaceDAO {
 
     @Override
     public void insert(Customer customer) {
+        String sql = "INSERT INTO customer(customer_firstname, customer_lastname, customer_username, customer_password, customer_address, customer_national_id, customer_mobile_number, customer_registration_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, customer.getCustomer_firstname());
+            statement.setString(2, customer.getCustomer_lastname());
+            statement.setString(3, customer.getCustomer_username());
+            statement.setString(4, customer.getCustomer_password());
+            statement.setString(5, customer.getCustomer_address());
+            statement.setDouble(6, customer.getCustomer_national_id());
+            statement.setString(7, customer.getCustomer_mobile_number());
+            statement.setTimestamp(8, Timestamp.valueOf(customer.getCustomer_registration_date()));
+            statement.executeUpdate();
+            System.out.println("Entity inserted successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
