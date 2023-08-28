@@ -25,4 +25,8 @@ public class CustomerController {
         return customerService.getAll();
     }
 
+    @GetMapping("/customers/search/")
+    public List<Customer> findCustomerByName(@RequestParam(name = "name") String name) throws SQLException {
+        return customerService.getByName(name);
+    }
 }
