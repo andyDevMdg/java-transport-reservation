@@ -91,7 +91,27 @@ public class CustomerDAO implements CustomerInterfaceDAO {
     }
 
     public Customer getById(int id) {
+        String sql = "SELECT * FROM customer WHERE id_customer = " + id;
 
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result = statement.executeQuery(sql);
+            if (result.next()) {
+                Customer customer = new Customer(
+                        result.getInt("id_customer"),
+                        result.getString("customer_firstname"),
+                        result.getString("customer_lastname"),
+                        result.getString("customer_username"),
+                        result.getString("customer_password"),
+                        result.getString("customer_address"),
+                        result.getDouble("customer_national_id"),
+                        result.getString("customer_mobile_number"),
+                        result.getTimestamp("customer_registration_date").toLocalDateTime()
+                );
+                return customer;
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
         return null;
     }
 
