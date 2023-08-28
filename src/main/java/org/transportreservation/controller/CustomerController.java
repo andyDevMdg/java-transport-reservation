@@ -34,4 +34,10 @@ public class CustomerController {
     public Customer findCustomerById(@PathVariable int id) throws SQLException {
         return customerService.getById(id);
     }
+
+    @PatchMapping("/customers/edit/{id}")
+    public Customer updateCustomerUsername(@PathVariable int id, @RequestBody String username) throws SQLException {
+        return customerService.updateUsernameById(id, username);
+    }
+
 }
