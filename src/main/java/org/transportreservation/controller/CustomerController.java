@@ -40,4 +40,9 @@ public class CustomerController {
         return customerService.updateUsernameById(id, username);
     }
 
+    @DeleteMapping("/customers/{id}")
+    public void deleteCustomerById(@PathVariable int id) throws SQLException {
+        customerService.deleteById(id);
+    }
+
 }
