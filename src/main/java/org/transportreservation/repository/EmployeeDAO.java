@@ -1,13 +1,14 @@
 package org.transportreservation.repository;
 
+import org.springframework.stereotype.Repository;
 import org.transportreservation.connection.ConnectionDB;
 import org.transportreservation.model.Employee;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class EmployeeDAO implements EmployeeInterfaceDAO{
 
     private Connection connection;
@@ -39,7 +40,27 @@ public class EmployeeDAO implements EmployeeInterfaceDAO{
 
     @Override
     public List<Employee> getAll() {
-        return null;
+        List<Employee> allEmployees = new ArrayList<>();
+        String sql = "SELECT * FROM employee";
+
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result = statement.executeQuery(sql);
+            while (result.next()) {
+                allEmployees.add(new Employee(
+                        result.getInt("id_employee"),
+                        result.getString("employee_firstname"),
+                        result.getString("employee_lastname"),
+                        result.getString("employee_address"),
+                        result.getDouble("employee_national_id"),
+                        result.getString("employee_mobile_number"),
+                        result.getString("employee_role"),
+                        result.getString("employee_password")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allEmployees;
     }
 
     @Override
