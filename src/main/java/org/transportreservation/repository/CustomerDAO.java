@@ -117,9 +117,19 @@ public class CustomerDAO implements CustomerInterfaceDAO {
 
 
     @Override
-
+// Use of Customer as a return value to show the updated table in Postman
     public Customer updateUsernameById(int id, String username) {
-        return null;
+        String sql = "UPDATE customer SET customer_username = ? WHERE id_customer = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, username);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+// Use of the method getById to show the updated table in Postman
+        return getById(id);
     }
 
 
