@@ -11,9 +11,9 @@ public interface CustomerInterfaceDAO {
 
     List<Customer> getByName(String name);
 
-    Customer getById(Long id);
+    Customer getById(int id);
 
     Customer updateUsernameById(int id, String username);
 
-    void deleteById(Long id);
+    void deleteById(int id);
 }
