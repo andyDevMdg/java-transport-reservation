@@ -11,7 +11,7 @@ public interface BusInterfaceDAO {
 
     Bus getById(int id);
 
-    Bus updatePlacesById(int id, String username);
+    Bus updatePlacesById(int id, int numberOfPlaces);
 
     void deleteById(int id);
 }
