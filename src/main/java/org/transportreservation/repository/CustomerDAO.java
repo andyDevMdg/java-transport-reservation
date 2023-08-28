@@ -64,10 +64,29 @@ public class CustomerDAO implements CustomerInterfaceDAO {
     }
 
     @Override
-// to find a customer ny searching its firstname
+// to find a customer by searching its firstname
     public List<Customer> getByName(String name) {
         List<Customer> allCustomers = new ArrayList<>();
+        String sql = "SELECT * FROM customer WHERE customer_firstname LIKE '%" + name + "%'";
 
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result = statement.executeQuery(sql);
+            while (result.next()) {
+                allCustomers.add(new Customer(
+                        result.getInt("id_customer"),
+                        result.getString("customer_firstname"),
+                        result.getString("customer_lastname"),
+                        result.getString("customer_username"),
+                        result.getString("customer_password"),
+                        result.getString("customer_address"),
+                        result.getDouble("customer_national_id"),
+                        result.getString("customer_mobile_number"),
+                        result.getTimestamp("customer_registration_date").toLocalDateTime()
+                ));
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
         return allCustomers;
     }
 
