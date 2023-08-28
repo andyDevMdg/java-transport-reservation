@@ -37,6 +37,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
         }
     }
 
+
     @Override
     public List<Customer> getAll() {
         List<Customer> allCustomers = new ArrayList<>();
@@ -62,6 +63,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
         }
         return allCustomers;
     }
+
 
     @Override
 // to find a customer by searching its firstname
@@ -89,6 +91,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
         }
         return allCustomers;
     }
+
 
     public Customer getById(int id) {
         String sql = "SELECT * FROM customer WHERE id_customer = " + id;
@@ -135,7 +138,14 @@ public class CustomerDAO implements CustomerInterfaceDAO {
 
     @Override
     public void deleteById(int id) {
+        String sql = "DELETE FROM customer WHERE id_customer = ?";
 
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
