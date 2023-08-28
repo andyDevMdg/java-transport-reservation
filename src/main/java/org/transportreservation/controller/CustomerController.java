@@ -20,6 +20,9 @@ public class CustomerController {
         return customerService.insertCustomer(customer);
     }
 
-
+    @GetMapping("/customers")
+    public List<Customer> findAllCustomer() throws SQLException {
+        return customerService.getAll();
+    }
 
 }
