@@ -40,7 +40,26 @@ public class CustomerDAO implements CustomerInterfaceDAO {
     @Override
     public List<Customer> getAll() {
         List<Customer> allCustomers = new ArrayList<>();
+        String sql = "SELECT * FROM customer";
 
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result = statement.executeQuery(sql);
+            while (result.next()) {
+                allCustomers.add(new Customer(
+                        result.getInt("id_customer"),
+                        result.getString("customer_firstname"),
+                        result.getString("customer_lastname"),
+                        result.getString("customer_username"),
+                        result.getString("customer_password"),
+                        result.getString("customer_address"),
+                        result.getDouble("customer_national_id"),
+                        result.getString("customer_mobile_number"),
+                        result.getTimestamp("customer_registration_date").toLocalDateTime()
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return allCustomers;
     }
 
