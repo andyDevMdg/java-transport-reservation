@@ -30,5 +30,8 @@ public class EmployeeController {
         return employeeService.getByName(name);
     }
 
-
+    @GetMapping("/employees/search/{id}")
+    public Employee findCustomerById(@PathVariable int id) throws SQLException {
+        return employeeService.getById(id);
+    }
 }
