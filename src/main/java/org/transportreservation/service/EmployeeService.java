@@ -24,4 +24,20 @@ public class EmployeeService {
     public List<Employee> getAll() throws SQLException {
         return employeeDAO.getAll();
     }
+
+    public List<Employee> getByName(String name) throws SQLException {
+        return employeeDAO.getByName(name);
+    }
+
+    public Employee getById(int id) throws SQLException {
+        return employeeDAO.getById(id);
+    }
+
+    public Employee updateAddressbyId(int id, String address){
+        return employeeDAO.updateAddressById(id, address);
+    }
+
+    public void deleteByid(int id) throws SQLException {
+        employeeDAO.deleteById(id);
+    }
 }
