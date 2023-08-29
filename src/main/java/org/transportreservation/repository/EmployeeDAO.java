@@ -91,6 +91,26 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
 
     @Override
     public Employee getById(int id) {
+        String sql = "SELECT * FROM employee WHERE id_customer = " + id;
+
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result = statement.executeQuery(sql);
+            if (result.next()) {
+                Employee employee = new Employee(
+                        result.getInt("id_employee"),
+                        result.getString("employee_firstname"),
+                        result.getString("employee_lastname"),
+                        result.getString("employee_address"),
+                        result.getDouble("employee_national_id"),
+                        result.getString("employee_mobile_number"),
+                        result.getString("employee_role"),
+                        result.getString("employee_password")
+                );
+                return employee;
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
         return null;
     }
 
