@@ -40,5 +40,8 @@ public class EmployeeController {
         return employeeService.updateAddressbyId(id, address);
     }
 
-
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployeeById(@PathVariable int id) throws SQLException {
+        employeeService.deleteByid(id);
+    }
 }
