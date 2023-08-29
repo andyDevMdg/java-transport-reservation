@@ -132,7 +132,14 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
 
     @Override
     public void deleteById(int id) {
+        String sql = "DELETE FROM employee WHERE id_employee = ?";
 
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
