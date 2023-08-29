@@ -31,7 +31,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/search/{id}")
-    public Employee findCustomerById(@PathVariable int id) throws SQLException {
+    public Employee findEmployeeById(@PathVariable int id) throws SQLException {
         return employeeService.getById(id);
     }
+
+    @PatchMapping("/employees/edit/{id}")
+    public Employee updateCustomerAddress(@PathVariable int id, @RequestBody String address) throws SQLException {
+        return employeeService.updateAddressbyId(id, address);
+    }
+
+
 }
