@@ -1,9 +1,6 @@
 package org.transportreservation.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.transportreservation.model.Employee;
 import org.transportreservation.service.EmployeeService;
 
@@ -27,5 +24,11 @@ public class EmployeeController {
     public List<Employee> findAllEmployee() throws SQLException {
         return employeeService.getAll();
     }
+
+    @GetMapping("/employees/search/")
+    public List<Employee> findEmployeeByName(@RequestParam(name = "name") String name) throws SQLException {
+        return employeeService.getByName(name);
+    }
+
 
 }
