@@ -13,7 +13,7 @@ public interface EmployeeInterfaceDAO {
 
     Employee getById(int id);
 
-    Employee updateAddressById(int id, String username);
+    Employee updateAddressById(int id, String address);
 
     void deleteById(int id);
 }
