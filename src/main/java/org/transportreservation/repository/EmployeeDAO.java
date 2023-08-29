@@ -115,8 +115,19 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
     }
 
     @Override
-    public Employee updateUsernameById(int id, String username) {
-        return null;
+// Use of Employee as a return value to get the updated table
+    public Employee updateAddressById(int id, String address) {
+        String sql = "UPDATE employee SET employee_address = ? WHERE id_employee = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, address);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+// Use of the method getById to get the updated table
+        return getById(id);
     }
 
     @Override
