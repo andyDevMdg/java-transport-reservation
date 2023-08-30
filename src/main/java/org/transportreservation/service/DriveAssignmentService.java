@@ -1,11 +1,13 @@
 package org.transportreservation.service;
 
+import org.springframework.stereotype.Service;
 import org.transportreservation.model.DriveAssignment;
 import org.transportreservation.repository.DriveAssignmentDAO;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Service
 public class DriveAssignmentService {
     private DriveAssignmentDAO driveAssignmentDAO;
 

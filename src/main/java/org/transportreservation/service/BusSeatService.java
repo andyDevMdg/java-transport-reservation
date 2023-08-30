@@ -1,5 +1,6 @@
 package org.transportreservation.service;
 
+import org.springframework.stereotype.Service;
 import org.transportreservation.model.Bus;
 import org.transportreservation.model.BusSeat;
 import org.transportreservation.repository.BusSeatDAO;
@@ -7,6 +8,7 @@ import org.transportreservation.repository.BusSeatDAO;
 import java.sql.SQLException;
 import java.util.List;
 
+@Service
 public class BusSeatService {
     private BusSeatDAO busSeatDAO;
 

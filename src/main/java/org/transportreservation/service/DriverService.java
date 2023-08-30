@@ -1,5 +1,6 @@
 package org.transportreservation.service;
 
+import org.springframework.stereotype.Service;
 import org.transportreservation.model.Driver;
 import org.transportreservation.model.Employee;
 import org.transportreservation.repository.DriverDAO;
@@ -7,6 +8,7 @@ import org.transportreservation.repository.DriverDAO;
 import java.sql.SQLException;
 import java.util.List;
 
+@Service
 public class DriverService {
     private DriverDAO driverDAO;
 

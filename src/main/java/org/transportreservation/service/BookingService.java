@@ -1,11 +1,13 @@
 package org.transportreservation.service;
 
+import org.springframework.stereotype.Service;
 import org.transportreservation.model.Booking;
 import org.transportreservation.repository.BookingDAO;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Service
 public class BookingService {
     private BookingDAO bookingDAO;
 
