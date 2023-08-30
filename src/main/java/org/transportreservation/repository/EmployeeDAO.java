@@ -27,7 +27,7 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
             statement.setString(1, employee.getEmployee_firstname());
             statement.setString(2, employee.getEmployee_lastname());
             statement.setString(3, employee.getEmployee_address());
-            statement.setDouble(4, employee.getEmployee_national_id());
+            statement.setLong(4, employee.getEmployee_national_id());
             statement.setString(5, employee.getEmployee_mobile_number());
             statement.setString(6, employee.getEmployee_role());
             statement.setString(7, employee.getEmployee_password());
@@ -52,7 +52,7 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
                         result.getString("employee_firstname"),
                         result.getString("employee_lastname"),
                         result.getString("employee_address"),
-                        result.getDouble("employee_national_id"),
+                        result.getLong("employee_national_id"),
                         result.getString("employee_mobile_number"),
                         result.getString("employee_role"),
                         result.getString("employee_password")
@@ -77,7 +77,7 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
                         result.getString("employee_firstname"),
                         result.getString("employee_lastname"),
                         result.getString("employee_address"),
-                        result.getDouble("employee_national_id"),
+                        result.getLong("employee_national_id"),
                         result.getString("employee_mobile_number"),
                         result.getString("employee_role"),
                         result.getString("employee_password")
@@ -91,7 +91,7 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
 
     @Override
     public Employee getById(int id) {
-        String sql = "SELECT * FROM employee WHERE id_customer = " + id;
+        String sql = "SELECT * FROM employee WHERE id_employee = " + id;
 
         try (Statement statement = connection.createStatement()) {
             ResultSet result = statement.executeQuery(sql);
@@ -101,7 +101,7 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
                         result.getString("employee_firstname"),
                         result.getString("employee_lastname"),
                         result.getString("employee_address"),
-                        result.getDouble("employee_national_id"),
+                        result.getLong("employee_national_id"),
                         result.getString("employee_mobile_number"),
                         result.getString("employee_role"),
                         result.getString("employee_password")
@@ -142,17 +142,4 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
         }
     }
 
-    public static void main(String[] args) {
-        EmployeeDAO dao = new EmployeeDAO(ConnectionDB.getConnection());
-        Employee andy = new Employee(
-                1,
-                "Andy Avotiana",
-                "RAZAFINDRAKOTO",
-                "85 Itaosy Andranonahoatra",
-                123456789,
-                "+261340000000",
-                "admin",
-                "azerty");
-        dao.insert(andy);
-    }
 }
