@@ -1,11 +1,13 @@
 package org.transportreservation.repository;
 
+import org.springframework.stereotype.Repository;
 import org.transportreservation.model.Driver;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class DriverDAO implements DriverInterfaceDAO{
     private Connection connection;
 

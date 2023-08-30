@@ -1,5 +1,6 @@
 package org.transportreservation.repository;
 
+import org.springframework.stereotype.Repository;
 import org.transportreservation.model.DriveAssignment;
 import org.transportreservation.model.Payment;
 
@@ -7,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
 
     private Connection connection;
