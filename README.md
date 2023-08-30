@@ -41,8 +41,37 @@ src/main/java/org/transportreservation/connection/Credentials.java
 ```
 
 #### - START THE PROGRAM
-You can start the program directly into intelliJ or thru the jar file located here:
+You can start the program **directly into intelliJ** or thru the jar file located here:
 ```
 out/artifacts/java_transport_reservation_jar
 ```
 
+## Indication about the endpoints
+### Here is a list of all endpoints
+
+#### Customer
+```
+post: 
+  /customers
+  description: add new Customer to the database
+
+get: 
+  /customers
+  description: find all Customer in the database
+
+get: 
+  /customers/search/?name=name
+  description: find a customer by name (firstname)
+
+get: 
+  /customers/search/{id}
+  description: find a customer by Id
+
+patch: 
+  /customers/edit/{id}
+  description: update a customer username using its id as reference
+
+delete: 
+  /customers/{id}
+  description: delete a customer using its id as reference
+```
