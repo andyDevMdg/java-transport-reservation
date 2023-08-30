@@ -33,7 +33,7 @@ public class EmployeeService {
         return employeeDAO.getById(id);
     }
 
-    public Employee updateAddressbyId(int id, String address){
+    public Employee updateAddressbyId(int id, String address) throws SQLException{
         return employeeDAO.updateAddressById(id, address);
     }
 
