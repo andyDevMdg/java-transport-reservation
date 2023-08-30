@@ -17,7 +17,7 @@ public class Booking {
     private LocalDateTime departure_datetime;
     private String destination_location;
     private LocalDateTime destination_datetime;
-    private boolean is_paid;
+    private Boolean is_paid;
     private int id_customer;
     private int id_payment;
     private int id_bus_seat;

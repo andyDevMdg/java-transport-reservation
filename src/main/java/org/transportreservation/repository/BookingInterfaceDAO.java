@@ -11,7 +11,7 @@ public interface BookingInterfaceDAO {
 
     Booking getById(int id);
 
-    Booking updateDestinationById(int id, String Destination);
+    Booking updateDestinationById(int id, String destination);
 
     void deleteById(int id);
 }

@@ -11,7 +11,7 @@ public interface PaymentInterfaceDAO {
 
     Payment getById(int id);
 
-    Payment updateAmountById(int id, double Amount);
+    Payment updateAmountById(int id, double amount);
 
     void deleteById(int id);
 }

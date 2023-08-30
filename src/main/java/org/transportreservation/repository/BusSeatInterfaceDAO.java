@@ -11,7 +11,7 @@ public interface BusSeatInterfaceDAO {
 
     BusSeat getById(int id);
 
-    BusSeat updatePriceById(int id, double Price);
+    BusSeat updatePriceById(int id, double price);
 
     void deleteById(int id);
 }
