@@ -37,7 +37,7 @@ public class DriverService {
         return driverDAO.updatePhoneById(id, phone);
     }
 
-    public void deleteByid(int id) throws SQLException {
+    public void deleteById(int id) throws SQLException {
         driverDAO.deleteById(id);
     }
 }

@@ -1,5 +1,6 @@
 package org.transportreservation.repository;
 
+import org.springframework.stereotype.Repository;
 import org.transportreservation.model.Booking;
 import org.transportreservation.model.Customer;
 
@@ -7,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class BookingDAO implements BookingInterfaceDAO {
 
     private Connection connection;

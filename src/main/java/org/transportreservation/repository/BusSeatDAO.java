@@ -1,5 +1,6 @@
 package org.transportreservation.repository;
 
+import org.springframework.stereotype.Repository;
 import org.transportreservation.model.Bus;
 import org.transportreservation.model.BusSeat;
 
@@ -7,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class BusSeatDAO implements BusSeatInterfaceDAO{
 
     private Connection connection;
