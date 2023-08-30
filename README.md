@@ -125,3 +125,26 @@ delete:
   /bus/{id}
   description: delete a bus using its Id as reference
 ```
+
+#### Bus Seat
+```
+post: 
+  /seat
+  description: add new BusSeat to the database
+
+get: 
+  /seat
+  description: find all BusSeat in the database
+
+get: 
+  /seat/search/{id}
+  description: find a BusSeat by Id
+
+patch: 
+  /seat/edit/{id}
+  description: update the price of a seat using its Id as reference
+
+delete: 
+  /seat/{id}
+  description: delete a seat using its Id as reference
+```
