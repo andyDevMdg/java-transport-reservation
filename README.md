@@ -148,3 +148,53 @@ delete:
   /seat/{id}
   description: delete a seat using its Id as reference
 ```
+
+#### Driver
+```
+post: 
+  /drivers
+  description: add new Driver to the database
+
+get: 
+  /drivers
+  description: find all Driver in the database
+
+get: 
+  /drivers/search/?name=name
+  description: find a driver by name (firstname)
+
+get: 
+  /drivers/search/{id}
+  description: find a driver by Id
+
+patch: 
+  /drivers/edit/{id}
+  description: update a driver phone number using its Id as reference
+
+delete: 
+  /drivers/{id}
+  description: delete a driver using its Id as reference
+```
+
+#### Payment
+```
+post: 
+  /payment
+  description: add new Payment to the database
+
+get: 
+  /payment
+  description: find all Payment in the database
+
+get: 
+  /payment/search/{id}
+  description: find a Payment by Id
+
+patch: 
+  /payment/edit/{id}
+  description: update the amount of a payment using its Id as reference
+
+delete: 
+  /payment/{id}
+  description: delete a payment using its Id as reference
+```

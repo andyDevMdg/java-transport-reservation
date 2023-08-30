@@ -38,7 +38,7 @@ public class PaymentController {
     }
 
     @DeleteMapping("/payment/{id}")
-    public void deleteBusById(@PathVariable int id) throws SQLException {
+    public void deletePaymentById(@PathVariable int id) throws SQLException {
         paymentService.deleteById(id);
     }
 }
