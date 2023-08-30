@@ -31,7 +31,7 @@ public class BusController {
         return busService.getById(id);
     }
 
-    @PatchMapping("/bus/edit/{id}")
+    @PatchMapping("/bus/edit/places/{id}")
     public Bus updatePlacesById(@PathVariable int id, @RequestBody int numberOfPlaces) throws SQLException {
         return busService.updatePlacesById(id, numberOfPlaces);
     }
