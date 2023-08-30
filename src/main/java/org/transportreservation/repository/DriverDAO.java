@@ -17,7 +17,12 @@ public class DriverDAO implements DriverInterfaceDAO{
 
     @Override
     public void insert(Driver driver) {
-        String sql = "INSERT INTO driver(driver_firstname, driver_lastname, driver_address, driver_national_id, driver_mobile_number) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO driver(" +
+                "driver_firstname, " +
+                "driver_lastname, " +
+                "driver_address, " +
+                "driver_national_id, " +
+                "driver_mobile_number) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, driver.getDriver_firstname());

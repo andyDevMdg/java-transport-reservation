@@ -21,7 +21,14 @@ public class EmployeeDAO implements EmployeeInterfaceDAO {
 
     @Override
     public void insert(Employee employee) {
-        String sql = "INSERT INTO employee(employee_firstname, employee_lastname, employee_address, employee_national_id, employee_mobile_number, employee_role, employee_password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO employee(" +
+                "employee_firstname, " +
+                "employee_lastname, " +
+                "employee_address, " +
+                "employee_national_id, " +
+                "employee_mobile_number, " +
+                "employee_role, " +
+                "employee_password) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, employee.getEmployee_firstname());

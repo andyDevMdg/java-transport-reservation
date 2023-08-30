@@ -19,7 +19,15 @@ public class BookingDAO implements BookingInterfaceDAO {
 
     @Override
     public void insert(Booking booking) {
-        String sql = "INSERT INTO booking(departure_location, departure_datetime, destination_location, destination_datetime, is_paid, id_customer, id_payment, id_bus_seat, id_employee) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO booking(" +
+                "departure_location, " +
+                "departure_datetime, " +
+                "destination_location, " +
+                "destination_datetime, " +
+                "is_paid, id_customer, " +
+                "id_payment, " +
+                "id_bus_seat, " +
+                "id_employee) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, booking.getDeparture_location());

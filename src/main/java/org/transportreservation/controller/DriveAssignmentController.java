@@ -31,7 +31,8 @@ public class DriveAssignmentController {
     }
 
     @PatchMapping("/assignment/edit/{id}")
-    public DriveAssignment updateDriverById(@PathVariable int id, @RequestBody int driver) throws SQLException {
+    public DriveAssignment updateDriverById(@PathVariable int id, @RequestBody String assignedDriver) throws SQLException {
+        int driver = Integer.parseInt(assignedDriver);
         return driveAssignmentService.updateDriverById(id, driver);
     }
 
