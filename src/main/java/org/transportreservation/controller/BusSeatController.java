@@ -32,7 +32,8 @@ public class BusSeatController {
     }
 
     @PatchMapping("/seat/edit/{id}")
-    public BusSeat updatePriceById(@PathVariable int id, @RequestBody double price) throws SQLException {
+    public BusSeat updatePriceById(@PathVariable int id, @RequestBody String seatPrice) throws SQLException {
+        double price = Double.parseDouble(seatPrice);
         return busSeatService.updatePriceById(id, price);
     }
 

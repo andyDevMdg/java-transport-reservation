@@ -19,7 +19,15 @@ public class CustomerDAO implements CustomerInterfaceDAO {
 
     @Override
     public void insert(Customer customer) {
-        String sql = "INSERT INTO customer(customer_firstname, customer_lastname, customer_username, customer_password, customer_address, customer_national_id, customer_mobile_number, customer_registration_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO customer(" +
+                "customer_firstname, " +
+                "customer_lastname, " +
+                "customer_username, " +
+                "customer_password, " +
+                "customer_address, " +
+                "customer_national_id, " +
+                "customer_mobile_number, " +
+                "customer_registration_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, customer.getCustomer_firstname());
@@ -27,7 +35,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
             statement.setString(3, customer.getCustomer_username());
             statement.setString(4, customer.getCustomer_password());
             statement.setString(5, customer.getCustomer_address());
-            statement.setDouble(6, customer.getCustomer_national_id());
+            statement.setLong(6, customer.getCustomer_national_id());
             statement.setString(7, customer.getCustomer_mobile_number());
             statement.setTimestamp(8, Timestamp.valueOf(customer.getCustomer_registration_date()));
             statement.executeUpdate();
@@ -53,7 +61,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
                         result.getString("customer_username"),
                         result.getString("customer_password"),
                         result.getString("customer_address"),
-                        result.getDouble("customer_national_id"),
+                        result.getLong("customer_national_id"),
                         result.getString("customer_mobile_number"),
                         result.getTimestamp("customer_registration_date").toLocalDateTime()
                 ));
@@ -81,7 +89,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
                         result.getString("customer_username"),
                         result.getString("customer_password"),
                         result.getString("customer_address"),
-                        result.getDouble("customer_national_id"),
+                        result.getLong("customer_national_id"),
                         result.getString("customer_mobile_number"),
                         result.getTimestamp("customer_registration_date").toLocalDateTime()
                 ));
@@ -106,7 +114,7 @@ public class CustomerDAO implements CustomerInterfaceDAO {
                         result.getString("customer_username"),
                         result.getString("customer_password"),
                         result.getString("customer_address"),
-                        result.getDouble("customer_national_id"),
+                        result.getLong("customer_national_id"),
                         result.getString("customer_mobile_number"),
                         result.getTimestamp("customer_registration_date").toLocalDateTime()
                 );

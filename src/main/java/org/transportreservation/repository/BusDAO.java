@@ -42,7 +42,7 @@ public class BusDAO implements BusInterfaceDAO {
             ResultSet result = statement.executeQuery(sql);
             while (result.next()) {
                 allBus.add(new Bus(
-                        result.getInt("id_employee"),
+                        result.getInt("id_bus"),
                         result.getString("bus_plate_number"),
                         result.getInt("bus_number_of_places"),
                         result.getString("bus_brand")

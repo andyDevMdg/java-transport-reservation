@@ -19,11 +19,11 @@ public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
 
     @Override
     public void insert(DriveAssignment driveAssignment) {
-        String sql = "INSERT INTO drive_assignment(id_bus, id_drive) VALUES (?, ?)";
+        String sql = "INSERT INTO drive_assignment(id_bus, id_driver) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, driveAssignment.getId_bus());
-            statement.setInt(2, driveAssignment.getId_drive());
+            statement.setInt(2, driveAssignment.getId_driver());
 
             statement.executeUpdate();
             System.out.println("Entity inserted successfully");
@@ -43,7 +43,7 @@ public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
                 allDriveAssignment.add(new DriveAssignment(
                         result.getInt("id_drive_assignment"),
                         result.getInt("id_bus"),
-                        result.getInt("id_drive")
+                        result.getInt("id_driver")
                 ));
             }
         } catch (SQLException e) {
@@ -62,7 +62,7 @@ public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
                 DriveAssignment driveAssignment = new DriveAssignment(
                         result.getInt("id_drive_assignment"),
                         result.getInt("id_bus"),
-                        result.getInt("id_drive")
+                        result.getInt("id_driver")
                 );
                 return driveAssignment;
             }
@@ -74,7 +74,7 @@ public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
 
     @Override
     public DriveAssignment updateDriverById(int id, int driver) {
-        String sql = "UPDATE drive_assignment SET id_drive = ? WHERE id_drive_assignment = ?";
+        String sql = "UPDATE drive_assignment SET id_driver = ? WHERE id_drive_assignment = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setDouble(1, driver);

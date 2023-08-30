@@ -14,7 +14,7 @@ public class Employee {
     private String employee_firstname;
     private String employee_lastname;
     private String employee_address;
-    private double employee_national_id;
+    private long employee_national_id;
     private String employee_mobile_number;
     private String employee_role;
     private String employee_password;

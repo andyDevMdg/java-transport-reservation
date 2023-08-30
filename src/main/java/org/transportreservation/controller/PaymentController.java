@@ -32,7 +32,8 @@ public class PaymentController {
     }
 
     @PatchMapping("/payment/edit/{id}")
-    public Payment updateAmountById(@PathVariable int id, @RequestBody double amount) throws SQLException {
+    public Payment updateAmountById(@PathVariable int id, @RequestBody String paymentAmount) throws SQLException {
+        double amount = Double.parseDouble(paymentAmount);
         return paymentService.updateAmountById(id, amount);
     }
 

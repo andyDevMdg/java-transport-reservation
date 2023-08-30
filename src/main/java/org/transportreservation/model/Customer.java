@@ -21,7 +21,7 @@ public class Customer {
     private String customer_username;
     private String customer_password;
     private String customer_address;
-    private double customer_national_id;
+    private long customer_national_id;
     private String customer_mobile_number;
     private LocalDateTime customer_registration_date;
 }
