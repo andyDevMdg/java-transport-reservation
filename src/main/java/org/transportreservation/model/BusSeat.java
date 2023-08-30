@@ -12,6 +12,6 @@ import lombok.*;
 public class BusSeat {
     private int id_bus_seat;
     private double bus_seat_price;
-    private boolean is_taken;
+    private Boolean is_taken;
     private int id_bus;
 }
