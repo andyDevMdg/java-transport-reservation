@@ -1,25 +1,27 @@
 package org.transportreservation.repository;
 
+import org.transportreservation.model.DriveAssignment;
 import org.transportreservation.model.Payment;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentDAO implements PaymentInterfaceDAO {
+public class DriveAssignmentDAO implements DriveAssignmentInterfaceDAO {
+
     private Connection connection;
 
-    public PaymentDAO(Connection connection) {
+    public DriveAssignmentDAO(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public void insert(Payment payment) {
-        String sql = "INSERT INTO payment(payment_method, payment_amount) VALUES (?, ?)";
+    public void insert(DriveAssignment driveAssignment) {
+        String sql = "INSERT INTO drive_assignment(id_bus, id_drive) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, payment.getPayment_method());
-            statement.setDouble(2, payment.getPayment_amount());
+            statement.setInt(1, driveAssignment.getId_bus());
+            statement.setInt(2, driveAssignment.getId_drive());
 
             statement.executeUpdate();
             System.out.println("Entity inserted successfully");
@@ -29,38 +31,38 @@ public class PaymentDAO implements PaymentInterfaceDAO {
     }
 
     @Override
-    public List<Payment> getAll() {
-        List<Payment> allPayment = new ArrayList<>();
-        String sql = "SELECT * FROM payment";
+    public List<DriveAssignment> getAll() {
+        List<DriveAssignment> allDriveAssignment = new ArrayList<>();
+        String sql = "SELECT * FROM drive_assignment";
 
         try (Statement statement = connection.createStatement()) {
             ResultSet result = statement.executeQuery(sql);
             while (result.next()) {
-                allPayment.add(new Payment(
-                        result.getInt("id_payment"),
-                        result.getString("payment_method"),
-                        result.getDouble("payment_amount")
+                allDriveAssignment.add(new DriveAssignment(
+                        result.getInt("id_drive_assignment"),
+                        result.getInt("id_bus"),
+                        result.getInt("id_drive")
                 ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return allPayment;
+        return allDriveAssignment;
     }
 
     @Override
-    public Payment getById(int id) {
-        String sql = "SELECT * FROM payment WHERE id_payment = " + id;
+    public DriveAssignment getById(int id) {
+        String sql = "SELECT * FROM drive_assignment WHERE id_drive_assignment = " + id;
 
         try (Statement statement = connection.createStatement()) {
             ResultSet result = statement.executeQuery(sql);
             if (result.next()) {
-                Payment payment = new Payment(
-                        result.getInt("id_payment"),
-                        result.getString("payment_method"),
-                        result.getDouble("payment_amount")
+                DriveAssignment driveAssignment = new DriveAssignment(
+                        result.getInt("id_drive_assignment"),
+                        result.getInt("id_bus"),
+                        result.getInt("id_drive")
                 );
-                return payment;
+                return driveAssignment;
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
@@ -69,11 +71,11 @@ public class PaymentDAO implements PaymentInterfaceDAO {
     }
 
     @Override
-    public Payment updateAmountById(int id, double amount) {
-        String sql = "UPDATE payment SET payment_amount = ? WHERE id_payment = ?";
+    public DriveAssignment updateDriverById(int id, int driver) {
+        String sql = "UPDATE drive_assignment SET id_drive = ? WHERE id_drive_assignment = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setDouble(1, amount);
+            statement.setDouble(1, driver);
             statement.setInt(2, id);
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -85,7 +87,7 @@ public class PaymentDAO implements PaymentInterfaceDAO {
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE FROM payment WHERE id_payment = ?";
+        String sql = "DELETE FROM drive_assignment WHERE id_drive_assignment = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
