@@ -69,9 +69,59 @@ get:
 
 patch: 
   /customers/edit/{id}
-  description: update a customer username using its id as reference
+  description: update a customer username using its Id as reference
 
 delete: 
   /customers/{id}
   description: delete a customer using its id as reference
+```
+
+#### Employee
+```
+post: 
+  /employees
+  description: add new Employee to the database
+
+get: 
+  /employees
+  description: find all Employee in the database
+
+get: 
+  /employees/search/?name=name
+  description: find an employee by name (firstname)
+
+get: 
+  /employees/search/{id}
+  description: find an employee by Id
+
+patch: 
+  /employees/edit/{id}
+  description: update an employee address using its Id as reference
+
+delete: 
+  /employees/{id}
+  description: delete an employee using its Id as reference
+```
+
+#### Bus
+```
+post: 
+  /bus
+  description: add new Bus to the database
+
+get: 
+  /bus
+  description: find all Bus in the database
+
+get: 
+  /bus/search/{id}
+  description: find a bus by Id
+
+patch: 
+  /bus/edit/places/{id}
+  description: update the number of places of a bus using its Id as reference
+
+delete: 
+  /bus/{id}
+  description: delete a bus using its Id as reference
 ```
