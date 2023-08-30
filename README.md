@@ -198,3 +198,49 @@ delete:
   /payment/{id}
   description: delete a payment using its Id as reference
 ```
+
+#### Booking
+```
+post: 
+  /booking
+  description: add new Booking to the database
+
+get: 
+  /booking
+  description: find all Booking in the database
+
+get: 
+  /booking/search/{id}
+  description: find a Booking by Id
+
+patch: 
+  /booking/edit/{id}
+  description: update the destination location using its Id as reference
+
+delete: 
+  /booking/{id}
+  description: delete a booking using its Id as reference
+```
+
+#### Drive assignment
+```
+post: 
+  /assignment
+  description: add new DriveAssignment to the database
+
+get: 
+  /assignment
+  description: find all DriveAssignment in the database
+
+get: 
+  /assignment/search/{id}
+  description: find a DriveAssignment by Id
+
+patch: 
+  /assignment/edit/{id}
+  description: update the assigned driver using the assignment Id as reference
+
+delete: 
+  /assignment/{id}
+  description: delete an assignment using its Id as reference
+```
